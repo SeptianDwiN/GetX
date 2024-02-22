@@ -36,22 +36,12 @@ class LatihanController extends GetxController {
     }
   }
 
-  var expired_date = ''.obs;
-  Future<void> ExpiredDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2100),
-    );
+  Future<void> expiredDate() async {
+    final DateTime now = DateTime.now();
+    final DateTime expireddatee = now.add(Duration(days: 7));
 
-    if (picked != null) {
-        final experiedDateValue = picked.add(Duration(days: 7));
-      final formattedDate = DateFormat('yyyy-MM-dd').format(experiedDateValue);
-      expired_date.value = formattedDate;
-
-
-    }
+    final formattedDate = DateFormat('yyyy-MM-dd').format(expireddatee);
+    expireddate.value = formattedDate;
   }
 
   RxString calculateAge() {
@@ -86,10 +76,24 @@ class LatihanController extends GetxController {
     }
   }
 
+  void reset() {
+    nama.value = '';
+    placeofbirth.value = '';
+    dateofbirth.value = '';
+    gender.value = '';
+    email.value = '';
+    nationality.value = '';
+    membership.value = '';
+    cardnumber.value = '';
+    expireddate.value = '';
+  }
+
   void submitForm() {
+    // Cetak formulir
     print(
         'Data Formulir: $nama, $placeofbirth, $dateofbirth, $gender, $email, $nationality, $cardnumber, $expireddate, $payment ,${membership.value},  ${harga.value}, ${benefits.value} ');
+
+    // Set isFormSubmitted menjadi true
     isFormSubmitted.value = true;
-   
   }
 }

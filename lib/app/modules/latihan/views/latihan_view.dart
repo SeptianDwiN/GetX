@@ -138,9 +138,11 @@ class LatihanView extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Card Number'),
               onChanged: (value) => latihanController.cardnumber.value = value,
             ),
+
+
             SizedBox(height: 16.0),
             InkWell(
-              onTap: () => latihanController.ExpiredDate(context),
+              onTap: () => latihanController.expiredDate(),
               child: InputDecorator(
                 decoration: InputDecoration(
                   hintText: 'Pilih Tanggal',
@@ -149,7 +151,7 @@ class LatihanView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('Expired Date:'),
-                    Obx(() => Text(latihanController.expired_date.value)),
+                    Obx(() => Text(latihanController.expireddate.value)),
                   ],
                 ),
               ),

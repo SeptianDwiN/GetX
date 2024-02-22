@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:learn_getx/app/modules/latihan/views/latihan_view.dart';
 import '../controllers/latihan_controller.dart';
 
 class OutPut extends StatelessWidget {
@@ -50,13 +51,21 @@ class OutPut extends StatelessWidget {
                     ),
                     ListTile(
                       title:
-                          Text('Expired Date : ${latihan.expired_date.value} '),
+                          Text('Expired Date : ${latihan.expireddate.value} '),
                     ),
                     ListTile(
                       title: Text('Payment : ${latihan.harga.value} '),
                     ),
                     ListTile(
                       title: Text('Benefits : ${latihan.benefits.value} '),
+                    ),
+                    //  SizedBox(height: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        latihan.reset();
+                        Get.to(LatihanView());
+                      },
+                      child: Text('Reset and Back'),
                     ),
                   ],
                 ),
